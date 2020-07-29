@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tasks Service
+Bundle-SymbolicName: ca.footeware.tasks.service
+Bundle-Version: 0.0.1.202007290116
+Bundle-Vendor: footeware.ca
+Automatic-Module-Name: ca.footeware.tasks.service
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Service-Component: OSGI-INF/taskComponent.xml
+Bundle-ActivationPolicy: lazy
+Export-Package: ca.footeware.tasks.service,ca.footeware.tasks.service.in
+ ternal;x-internal:=true,ca.footeware.tasks.service.models
+

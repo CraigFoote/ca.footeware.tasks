@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='1'>
+  <artifact classifier='osgi.bundle' id='ca.footeware.tasks.ui' version='0.0.1.202007290116'>
+    <properties size='5'>
+      <property name='artifact.size' value='19378'/>
+      <property name='download.size' value='19378'/>
+      <property name='maven-groupId' value='ca.footeware.tasks'/>
+      <property name='maven-artifactId' value='ca.footeware.tasks.ui'/>
+      <property name='maven-version' value='0.0.1-SNAPSHOT'/>
+    </properties>
+  </artifact>
+</artifacts>
