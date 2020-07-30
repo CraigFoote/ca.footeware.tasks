@@ -112,6 +112,7 @@ public class DetailsPart {
 				titleText.setText(task.getTitle());
 				descriptionText.setText(task.getDescription());
 				completedButton.setSelection(task.isCompleted());
+				dueDateTime.setSelection(task.getDue());
 				id = task.getId();
 				dirty.setDirty(false);
 			}

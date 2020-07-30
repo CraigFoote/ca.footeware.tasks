@@ -14,6 +14,10 @@
 		    <unit id="org.eclipse.nebula.widgets.cdatetime.css.feature.feature.group" version="1.4.0.202007241204"/>
 		    <unit id="org.eclipse.nebula.widgets.cdatetime.feature.feature.group" version="1.5.0.202007241204"/>
 	    </location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="jar:file:/home/craig/Downloads/ca.footeware.e4.application.product-1.2.0-SNAPSHOT.zip!/"/>
+			<unit id="ca.footeware.e4.application.feature.feature.group" version="1.2.0.202007281819"/>
+		</location>
 	</locations>
 	<environment>
 		<os>linux</os>
