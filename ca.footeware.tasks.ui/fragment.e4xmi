@@ -4,10 +4,12 @@
     <elements xsi:type="advanced:Perspective" xmi:id="_IymoEND8Eeqz2qxXSVtSlA" elementId="ca.footeware.tasks.ui.perspective.tasks" label="Tasks" iconURI="platform:/plugin/ca.footeware.tasks.ui/icons/task.png">
       <children xsi:type="basic:PartSashContainer" xmi:id="_cD19UND-EeqLaYENMrlvfg" elementId="ca.footeware.tasks.ui.partsashcontainer.0" selectedElement="_eNyFUND-EeqLaYENMrlvfg" horizontal="true">
         <children xsi:type="basic:PartStack" xmi:id="_eNyFUND-EeqLaYENMrlvfg" elementId="ca.footeware.tasks.ui.partstack.0" selectedElement="_i2t_UND-EeqLaYENMrlvfg">
-          <children xsi:type="basic:Part" xmi:id="_i2t_UND-EeqLaYENMrlvfg" elementId="ca.footeware.tasks.ui.part.tasks" contributionURI="bundleclass://ca.footeware.tasks.ui/ca.footeware.tasks.ui.parts.TasksPart" label="Tasks" iconURI="platform:/plugin/ca.footeware.tasks.ui/icons/task.png"/>
+          <children xsi:type="basic:Part" xmi:id="_i2t_UND-EeqLaYENMrlvfg" elementId="ca.footeware.tasks.ui.part.tasks" contributionURI="bundleclass://ca.footeware.tasks.ui/ca.footeware.tasks.ui.parts.TasksPart" label="Tasks" iconURI="platform:/plugin/ca.footeware.tasks.ui/icons/task.png" closeable="true">
+            <toolbar xmi:id="_EpE2sNUJEeqbvdHryAwz-w" elementId="ca.footeware.tasks.ui.toolbar.1"/>
+          </children>
         </children>
         <children xsi:type="basic:PartStack" xmi:id="_hqLTsND-EeqLaYENMrlvfg" elementId="ca.footeware.tasks.ui.partstack.1" selectedElement="_Fn-zQNEJEeqLaYENMrlvfg">
-          <children xsi:type="basic:Part" xmi:id="_Fn-zQNEJEeqLaYENMrlvfg" elementId="ca.footeware.tasks.ui.part.details" contributionURI="bundleclass://ca.footeware.tasks.ui/ca.footeware.tasks.ui.parts.DetailsPart" label="Details" iconURI="platform:/plugin/ca.footeware.tasks.ui/icons/task.png">
+          <children xsi:type="basic:Part" xmi:id="_Fn-zQNEJEeqLaYENMrlvfg" elementId="ca.footeware.tasks.ui.part.details" contributionURI="bundleclass://ca.footeware.tasks.ui/ca.footeware.tasks.ui.parts.DetailsPart" label="Details" iconURI="platform:/plugin/ca.footeware.tasks.ui/icons/task.png" closeable="true">
             <toolbar xmi:id="_hYsPYNEwEeqLd9n4mol97g" elementId="ca.footeware.tasks.ui.toolbar.0">
               <children xsi:type="menu:DirectToolItem" xmi:id="_ch9CkNEzEeqLd9n4mol97g" elementId="ca.footeware.tasks.ui.directtoolitem.newtask" label="New Task" iconURI="platform:/plugin/ca.footeware.tasks.ui/icons/task_new.png" tooltip="New Task" contributionURI="bundleclass://ca.footeware.tasks.ui/ca.footeware.tasks.ui.handlers.NewTaskHandler"/>
               <children xsi:type="menu:DirectToolItem" xmi:id="_jFDDgNEwEeqLd9n4mol97g" elementId="ca.footeware.tasks.ui.directtoolitem.save" label="Save" iconURI="platform:/plugin/ca.footeware.tasks.ui/icons/save_edit.png" tooltip="Save Task" contributionURI="bundleclass://ca.footeware.tasks.ui/ca.footeware.tasks.ui.handlers.SaveHandler"/>

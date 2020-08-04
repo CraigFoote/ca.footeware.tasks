@@ -109,10 +109,18 @@ public class DetailsPart {
 					}
 				}
 				Task task = (Task) ((IStructuredSelection) selection).getFirstElement();
-				titleText.setText(task.getTitle());
-				descriptionText.setText(task.getDescription());
-				completedButton.setSelection(task.isCompleted());
-				dueDateTime.setSelection(task.getDue());
+				if (titleText != null && !titleText.isDisposed()) {
+					titleText.setText(task.getTitle());
+				}
+				if (descriptionText != null && !descriptionText.isDisposed()) {
+					descriptionText.setText(task.getDescription());
+				}
+				if (completedButton != null && !completedButton.isDisposed()) {
+					completedButton.setSelection(task.isCompleted());
+				}
+				if (dueDateTime != null && !dueDateTime.isDisposed()) {
+					dueDateTime.setSelection(task.getDue());
+				}
 				id = task.getId();
 				dirty.setDirty(false);
 			}
