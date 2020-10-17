@@ -6,7 +6,7 @@
 
 	<groupId>ca.footeware.tasks</groupId>
 	<artifactId>ca.footeware.tasks.parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -15,10 +15,11 @@
 		<module>../ca.footeware.tasks.service</module>
 		<module>../ca.footeware.tasks.feature</module>
 		<module>../ca.footeware.tasks.repository</module>
+		<module>../ca.footeware.tasks.tests</module>
 	</modules>
 
 	<properties>
-		<tycho.version>1.7.0</tycho.version>
+		<tycho.version>2.0.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 

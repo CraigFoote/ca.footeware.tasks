@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tasks Service
 Bundle-SymbolicName: ca.footeware.tasks.service
-Bundle-Version: 0.0.1.qualifier
-Bundle-Vendor: footeware.ca
+Bundle-Version: 0.0.2.qualifier
+Bundle-Vendor: Footeware.ca
 Automatic-Module-Name: ca.footeware.tasks.service
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Service-Component: OSGI-INF/taskComponent.xml
