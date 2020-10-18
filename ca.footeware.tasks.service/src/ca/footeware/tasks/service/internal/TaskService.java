@@ -19,8 +19,6 @@ public class TaskService implements ITaskService {
 	private List<Task> tasks = new ArrayList<>();
 	
 	public TaskService() {
-		tasks.add(new Task("one", "One", new Date(), false));
-		tasks.add(new Task("two", "Two", new Date(), false));
 	}
 		
 	@Override
