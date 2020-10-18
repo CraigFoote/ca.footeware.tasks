@@ -1,6 +1,11 @@
 
 package ca.footeware.tasks.ui.parts;
 
+import static org.eclipse.swt.events.SelectionListener.widgetSelectedAdapter;
+
+import java.util.Calendar;
+import java.util.Locale;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
@@ -13,16 +18,13 @@ import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.e4.ui.workbench.modeling.ISelectionListener;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.nebula.widgets.cdatetime.CDT;
-import org.eclipse.nebula.widgets.cdatetime.CDateTime;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
@@ -34,7 +36,7 @@ public class DetailsPart {
 	private String id;
 	private Text titleText;
 	private Text descriptionText;
-	private CDateTime dueDateTime;
+	private DateTime dueDateTime;
 	private Button completedButton;
 	@Inject
 	private ESelectionService selectionService;
@@ -53,12 +55,7 @@ public class DetailsPart {
 
 		titleText = new Text(parent, SWT.BORDER);
 		GridDataFactory.defaultsFor(titleText).grab(true, false).applyTo(titleText);
-		titleText.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent e) {
-				dirty.setDirty(true);
-			}
-		});
+		titleText.addModifyListener(e -> dirty.setDirty(true));
 
 		Label descriptionLabel = new Label(parent, SWT.NONE);
 		descriptionLabel.setText("Description:");
@@ -66,25 +63,14 @@ public class DetailsPart {
 
 		descriptionText = new Text(parent, SWT.BORDER | SWT.MULTI | SWT.WRAP | SWT.V_SCROLL | SWT.H_SCROLL);
 		GridDataFactory.defaultsFor(descriptionText).grab(true, true).applyTo(descriptionText);
-		descriptionText.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent e) {
-				dirty.setDirty(true);
-			}
-		});
+		descriptionText.addModifyListener(e -> dirty.setDirty(true));
 
 		Label dueLabel = new Label(parent, SWT.NONE);
 		dueLabel.setText("Due:");
 		GridDataFactory.defaultsFor(dueLabel).align(SWT.RIGHT, SWT.CENTER).applyTo(dueLabel);
 
-		dueDateTime = new CDateTime(parent, CDT.BORDER | CDT.COMPACT | CDT.DROP_DOWN | CDT.DATE_LONG | CDT.TIME_MEDIUM);
-		GridDataFactory.defaultsFor(dueDateTime).grab(true, false).applyTo(dueDateTime);
-		dueDateTime.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent e) {
-				dirty.setDirty(true);
-			}
-		});
+		dueDateTime = new DateTime(parent, SWT.DROP_DOWN);
+		dueDateTime.addSelectionListener(widgetSelectedAdapter(e -> dirty.setDirty(true)));
 
 		Label completedLabel = new Label(parent, SWT.NONE);
 		completedLabel.setText("Completed:");
@@ -119,7 +105,10 @@ public class DetailsPart {
 					completedButton.setSelection(task.isCompleted());
 				}
 				if (dueDateTime != null && !dueDateTime.isDisposed()) {
-					dueDateTime.setSelection(task.getDue());
+					Calendar cal = Calendar.getInstance(Locale.CANADA);
+					cal.setTime(task.getDue());
+					dueDateTime.setDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),
+							cal.get(Calendar.DAY_OF_MONTH));
 				}
 				id = task.getId();
 				dirty.setDirty(false);
@@ -136,12 +125,18 @@ public class DetailsPart {
 
 	@Persist
 	public void save(EPartService partService) {
+		Calendar cal = Calendar.getInstance(Locale.CANADA);
 		if (id == null) {
-			taskService.createTask(titleText.getText().trim(), descriptionText.getText().trim(),
-					dueDateTime.getSelection(), completedButton.getSelection());
+			int year = dueDateTime.getYear();
+			int month = dueDateTime.getMonth();
+			int day = dueDateTime.getDay();
+			cal.set(year, month, day);
+
+			taskService.createTask(titleText.getText().trim(), descriptionText.getText().trim(), cal.getTime(),
+					completedButton.getSelection());
 		} else {
 			taskService.saveTask(id, titleText.getText().trim(), descriptionText.getText().trim(),
-					dueDateTime.getSelection(), completedButton.getSelection());
+					cal.getTime(), completedButton.getSelection());
 		}
 		dirty.setDirty(false);
 		MPart mPart = partService.findPart("ca.footeware.tasks.ui.part.tasks");
@@ -155,9 +150,6 @@ public class DetailsPart {
 		}
 		if (descriptionText != null && !descriptionText.isDisposed()) {
 			descriptionText.setText("");
-		}
-		if (dueDateTime != null && !dueDateTime.isDisposed()) {
-			dueDateTime.setSelection(null);
 		}
 		if (completedButton != null && !completedButton.isDisposed()) {
 			completedButton.setSelection(false);

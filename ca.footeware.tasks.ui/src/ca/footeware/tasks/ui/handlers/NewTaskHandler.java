@@ -8,6 +8,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import ca.footeware.tasks.ui.parts.DetailsPart;
 
 public class NewTaskHandler {
+	
 	@Execute
 	public void execute(EPartService partService) {
 		MPart activePart = partService.getActivePart();
