@@ -1,22 +1,24 @@
 package ca.footeware.tasks.tests;
 
-import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
-import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import javax.inject.Inject;
 
-@RunWith(SWTBotJunit4ClassRunner.class)
-public class MyFirstTest {
+import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.swtbot.e4.finder.widgets.SWTWorkbenchBot;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+public class TaskTests {
 
 	private static SWTWorkbenchBot bot;
+	@Inject
+	private static IEclipseContext context;
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass() throws Exception {
-		bot = new SWTWorkbenchBot();
-		bot.viewByTitle("Welcome").close();
+		bot = new SWTWorkbenchBot(context);
+//		bot.partByTitle("Welcome").close();
 	}
 
 	@Test
@@ -34,7 +36,7 @@ public class MyFirstTest {
 		// FIXME: assert that the project is actually created, for later
 	}
 
-	@AfterClass
+	@AfterAll
 	public static void sleep() {
 		bot.sleep(2000);
 	}
