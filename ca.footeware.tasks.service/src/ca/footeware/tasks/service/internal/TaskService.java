@@ -55,11 +55,7 @@ public class TaskService implements ITaskService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public Task updateTask(String id, String title, String description, Date due, boolean completed) {
-=======
-	public Task saveTask(String id, String title, String description, Date due, boolean completed) {
->>>>>>> branch 'master' of https://github.com/CraigFoote/ca.footeware.tasks.git
 		for (Task task : tasks) {
 			if(task.getId().equals(id)) {
 				task.setTitle(title);
