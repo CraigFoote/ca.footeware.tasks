@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Thymeleaf Example</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script th:src="@{/js/main.js}"></script>
+<link th:href="@{/css/main.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<p th:text="${greeting}">Replace me!</p>
+	<p>
+		<button onclick="getWeather()">Get weather forecast</button>
+		<span id="getWeatherResult"></span>
+	</p>
+	<p>
+		<button onclick="setWeather()">Set weather forecast</button>
+		<span id="setWeatherResult"></span>
+	</p>
+	<p>
+		<button onclick="deleteWeather()">Delete weather forecast</button>
+		<span id="deleteWeatherResult"></span>
+	</p>
+</body>
+</html>
