@@ -40,6 +40,7 @@
 						<artifact>
 							<groupId>ca.footeware.tasks</groupId>
 							<artifactId>ca.footeware.tasks.targetplatform</artifactId>
+<<<<<<< HEAD
 							<version>${project.version}</version>
 						</artifact>
 					</target>
@@ -57,6 +58,26 @@
 					</environments>
 				</configuration>
 			</plugin>
+=======
+							<version>0.0.1-SNAPSHOT</version>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+>>>>>>> branch 'master' of https://github.com/CraigFoote/ca.footeware.tasks.git
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-plugin</artifactId>

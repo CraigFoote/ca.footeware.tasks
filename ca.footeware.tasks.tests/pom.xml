@@ -16,6 +16,7 @@
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
+<<<<<<< HEAD
 <!-- 			<plugin> -->
 <!-- 				<groupId>org.eclipse.tycho</groupId> -->
 <!-- 				<artifactId>tycho-surefire-plugin</artifactId> -->
@@ -44,6 +45,15 @@
 						</goals>
 					</execution>
 				</executions>
+=======
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<useUIHarness>true</useUIHarness>
+				</configuration>
+>>>>>>> branch 'master' of https://github.com/CraigFoote/ca.footeware.tasks.git
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

@@ -22,6 +22,10 @@ public interface ITaskService {
 
 	public boolean deleteTask(String id);
 
+<<<<<<< HEAD
 	public Task updateTask(String id, String title, String description, Date due, boolean completed);
+=======
+	public Task saveTask(String id, String title, String description, Date due, boolean completed);
+>>>>>>> branch 'master' of https://github.com/CraigFoote/ca.footeware.tasks.git
 
 }

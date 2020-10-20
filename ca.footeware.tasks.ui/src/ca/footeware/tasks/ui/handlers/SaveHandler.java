@@ -10,9 +10,13 @@ public class SaveHandler {
 	@Execute
 	public void execute(EPartService partService) {
 		MPart activePart = partService.getActivePart();
+<<<<<<< HEAD
 		if (activePart != null) {
 			partService.savePart(activePart, false);
 		}
+=======
+		partService.savePart(activePart, false);
+>>>>>>> branch 'master' of https://github.com/CraigFoote/ca.footeware.tasks.git
 	}
 
 }
