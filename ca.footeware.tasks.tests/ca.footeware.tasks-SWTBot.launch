@@ -305,7 +305,7 @@
         <setEntry value="org.eclipse.jdt.debug.ui@default:default"/>
         <setEntry value="org.eclipse.jdt.debug@default:default"/>
         <setEntry value="org.eclipse.jdt.junit.core@default:default"/>
-        <setEntry value="org.eclipse.jdt.junit.runtime@default:default"/>
+        <setEntry value="org.eclipse.jdt.junit.runtime*3.5.400.v20200918-0332@default:default"/>
         <setEntry value="org.eclipse.jdt.junit5.runtime@default:default"/>
         <setEntry value="org.eclipse.jdt.junit@default:default"/>
         <setEntry value="org.eclipse.jdt.launching@default:default"/>
@@ -323,10 +323,6 @@
         <setEntry value="org.eclipse.jface@default:default"/>
         <setEntry value="org.eclipse.ltk.core.refactoring@default:default"/>
         <setEntry value="org.eclipse.ltk.ui.refactoring@default:default"/>
-        <setEntry value="org.eclipse.nebula.cwt@default:default"/>
-        <setEntry value="org.eclipse.nebula.widgets.cdatetime@default:default"/>
-        <setEntry value="org.eclipse.nebula.widgets.gallery@default:default"/>
-        <setEntry value="org.eclipse.nebula.widgets.nattable.core@default:default"/>
         <setEntry value="org.eclipse.osgi.compatibility.state@default:false"/>
         <setEntry value="org.eclipse.osgi.services@default:default"/>
         <setEntry value="org.eclipse.osgi.util@default:default"/>
@@ -357,8 +353,6 @@
         <setEntry value="org.eclipse.swtbot.generator.ui@default:default"/>
         <setEntry value="org.eclipse.swtbot.generator@default:default"/>
         <setEntry value="org.eclipse.swtbot.junit5_x@default:default"/>
-        <setEntry value="org.eclipse.swtbot.nebula.gallery.finder@default:default"/>
-        <setEntry value="org.eclipse.swtbot.nebula.nattable.finder@default:default"/>
         <setEntry value="org.eclipse.swtbot.swt.finder@default:default"/>
         <setEntry value="org.eclipse.team.core@default:default"/>
         <setEntry value="org.eclipse.team.ui@default:default"/>
