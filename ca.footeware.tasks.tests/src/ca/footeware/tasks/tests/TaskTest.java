@@ -30,7 +30,7 @@ public class TaskTest {
 	}
 
 	@Test
-	public void testOpenViews() throws Exception {
+	public void testCloseAndOpenViews() throws Exception {
 		Assertions.assertTrue(bot.partByTitle(TASKS).getPart().isVisible());
 		Assertions.assertTrue(bot.partByTitle(DETAILS).getPart().isVisible());
 		bot.partByTitle(TASKS).close();
@@ -48,21 +48,26 @@ public class TaskTest {
 		SWTBotView part = bot.partByTitle(DETAILS);
 		part.show();
 		Assertions.assertTrue(part.getPart().isVisible());
-		part.toolbarButton("New Task").click();
+		for (int x = 0; x < 100; x++) {
+			part.toolbarButton("New Task").click();
 
-		bot.textWithLabel("Title:").setText("testTitle");
-		bot.textWithLabel("Description:").setText("testDescription");
-		Date date = new Date();
-		bot.dateTime().setDate(date);
+			bot.textWithLabel("Title:").setText("testTitle" + x);
+			bot.textWithLabel("Description:").setText("testDescription" + x);
+			Date date = new Date();
+			bot.dateTime().setDate(date);
 
-		part.toolbarButton("Save Task").click();
+			part.toolbarButton("Save Task").click();
+		}
 
 		part = bot.partByTitle(TASKS);
 		part.show();
 		SWTBotList botList = bot.list();
-		Assertions.assertEquals(1, botList.itemCount());
-		String taskName = botList.getItems()[0];
-		Assertions.assertEquals("testTitle", taskName);
+		Assertions.assertEquals(100, botList.itemCount());
+
+		for (int x = 0; x < 100; x++) {
+			String taskName = botList.getItems()[x];
+			Assertions.assertEquals("testTitle" + x, taskName);
+		}
 	}
 
 }
